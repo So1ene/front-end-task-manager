@@ -1,0 +1,44 @@
+.user-card {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  width: 324px;
+  position: relative;
+}
+
+.user-card-avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 12px;
+}
+
+.user-card-name {
+  font-family: sans-serif;
+  color: #54596F;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 2px;
+  cursor: default;
+}
+
+.user-card-poste {
+  font-family: sans-serif;
+  color: #B9BBD7;
+  text-align: left;
+  font-weight: normal;
+  font-size: 13px;
+  margin: 2px;
+  cursor: default;
+}
+
+.user-card i {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-decoration: none;
+  color: #54596F;
+  cursor: pointer;
+}

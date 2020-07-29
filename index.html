@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/index.css">
+
+  <title>Task Manager</title>
+
+</head>
+
+<body>
+  <!-- Sortable.js to change the order of the cards -->
+  <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+
+  <!-- Navigation bar: -->
+  <header class="navbar">
+    <nav>
+      <div class="navbar-left">
+        <a href="#"><img class="logo" src="assets/images/logo.svg" alt="Logo" style="width: 30px"></a>
+        <a class="nav-item" href="#">Link 1</a>
+        <a class="nav-item" href="#">Link 2</a>
+        <a class="nav-item" href="#">Link 3</a>
+      </div>
+      <div class="navbar-right">
+
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-btn">
+            <i class="far fa-folder-open"></i>
+            <span>Explore</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="nav-dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+        <a class="nav-item" href="#"><i class="fas fa-search"></i></a>
+        <a class="nav-item" href="#"><i class="fas fa-bell"></i></a>
+        <a class="nav-item" href="#"><i class="far fa-question-circle"></i></a>
+        <a class="nav-item" href="#"><i class="fas fa-cog"></i></a>
+        <a href="#"><img class="nav-avatar" src="assets/images/avatar.png" alt="Avatar"></a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <!-- Page top: -->
+    <div class="page-top">
+      <div class="page-title">
+        <h1>Task Manager</h1>
+      </div>
+      <!-- Boutons: -->
+      <div class="page-buttons">
+        <div>
+          <button class="page-button" type="button">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="page-button" type="button">
+          <i class="far fa-clock right-space"></i><span>Today</span>
+          </button>
+          <button class="page-button" type="button">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="page-button" type="button">
+            <i class="far fa-calendar-alt right-space"></i><span>01/01/2020</span>
+              <span class="padding-x">-</span><span>07/01/2020</span>
+          </button>
+          <button class="page-button" type="button">
+          <i class="far fa-calendar right-space"></i><span>Week View</span>
+          </button>
+        </div>
+        <div>
+          <button class="page-button" type="button">
+            <span class="conflits right-space">3</span><span>Conflits</span></button>
+          <button class="page-button right-space" type="button">
+          <i class="fas fa-sliders-h right-space fa-rotate-90"></i><span>Filters</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendrier: -->
+    <div class="table-wrapper">
+      <table class="calendar">
+        <thead>
+          <tr>
+            <th class="searchtable left-column" rowspan="2">
+              <div class="searchbar">
+                <i class="fa fa-search searchicon"></i>
+                <input placeholder="Searchbar" type="text">
+              </div>
+            </th>
+            <th colspan="7"><span class="month">January</span></th>
+          </tr>
+          <tr>
+            <th><div class="date"><span class="date-day">Monday</span>
+              <span class="date-number">01</span></div></th>
+            <th><div class="date today"><span class="date-day">Tuesday</span>
+              <span class="date-number">02</span></div></th>
+            <th><div class="date"><span class="date-day">Wednesday</span>
+              <span class="date-number">03</span></div></th>
+            <th><div class="date"><span class="date-day">Thursday</span>
+              <span  class="date-number">04</span></div></th>
+            <th><div class="date"><span class="date-day">Friday</span>
+              <span class="date-number">05</span></div></th>
+            <th><div class="date"><span class="date-day">Saturday</span>
+              <span  class="date-number">06</span></div></th>
+            <th><div class="date"><span class="date-day">Sunday</span>
+              <span class="date-number">07</span></div></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="tr-fixed-height">
+            <th class="left-column">
+              <div class="user-card">
+                <img class="user-card-avatar" src="assets/images/avatar.png" alt="Avatar">
+                <div>
+                  <div class="user-card-name">Name of Person</div>
+                  <div class="user-card-poste">Description</div>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+          </tr>
+
+          <tr>
+            <th class="column left-column">
+              <div class="en-retard-column">
+                <div id="enRetardTasks">
+                  <div class="en-retard static">
+                    <i class="fas fa-exclamation-triangle"></i> Late
+                  </div>
+                  <div class="task-card">
+                    <div class="card-color"></div>
+                    <div class="card-top">
+                      <div class="card-date">15 nov</div>
+                      <div class="card-hours">2h</div>
+                    </div>
+                    <div>
+                      <div class="card-company">Company</div>
+                      <div class="project-name">Task Name</div>
+                      <div class="task-name">Short Description</div>
+                    </div>
+                    <div class="card-bottom">
+                      <div class="card-location">
+                        <i class="fas fa-home"></i><span>Location</span>
+                      </div>
+                      <i class="far fa-comments"></i>
+                    </div>
+                  </div>
+
+                  <div class="task-card">
+                    <div class="card-color"></div>
+                    <div class="card-top">
+                      <div class="card-date">15 nov</div>
+                      <div class="card-hours">2h</div>
+                    </div>
+                    <div>
+                      <div class="card-company">Company</div>
+                      <div class="project-name">Task Name</div>
+                      <div class="task-name">Short Description</div>
+                    </div>
+                    <div class="card-bottom">
+                      <div class="card-location">
+                        <i class="fas fa-home"></i><span>Location</span>
+                      </div>
+                      <i class="far fa-comments"></i>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="firstColumn">
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+
+                <div class="add-new-button static" id="firstColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column today" id="secondColumn">
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="add-new-button static" id="secondColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="thirdColumn">
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="add-new-button static" id="thirdColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="fourthColumn">
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color" style="background-color: #A3EB9C;"></div>
+                  <div class="card-company">Company</div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color" style="background-color: #A3EB9C;"></div>
+                  <div class="card-company">Company</div>
+                </div>
+
+                <div class="add-new-button static" id="fourthColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="fifthColumn">
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="task-card">
+                  <div class="card-color"></div>
+                  <div class="card-top">
+                    <div class="card-date">15 nov</div>
+                    <div class="card-hours">2h</div>
+                  </div>
+                  <div>
+                    <div class="card-company">Company</div>
+                    <div class="project-name">Task Name</div>
+                    <div class="task-name">Short Description</div>
+                  </div>
+                  <div class="card-bottom">
+                    <div class="card-location">
+                      <i class="fas fa-home"></i><span>Location</span>
+                    </div>
+                    <i class="far fa-comments"></i>
+                  </div>
+                </div>
+
+                <div class="add-new-button static" id="fifthColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="sixthColumn">
+
+                <div class="add-new-button static" id="sixthColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+            <th class="column">
+              <div class="inner-column" id="seventhColumn">
+
+                <div class="add-new-button static" id="seventhColumnButton">
+                  <i class="fas fa-plus"></i>
+                  <span>Add a task</span>
+                </div>
+
+              </div>
+            </th>
+          </tr>
+          <tr class="tr-fixed-height">
+            <th class="left-column">
+              <div class="user-card">
+                <img class="user-card-avatar" src="assets/images/avatar.png" alt="Avatar">
+                <div>
+                  <div class="user-card-name">Name of Person</div>
+                  <div class="user-card-poste">Description</div>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+            <th>
+              <div class="task-number">0/3</div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<!-- Sort the tasks: -->
+  <script type="text/javascript">
+    new Sortable(firstColumn, {
+        group: 'tasks',
+        animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(secondColumn, {
+        group: 'tasks',
+        animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(thirdColumn, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(fourthColumn, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(fifthColumn, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(sixthColumn, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(seventhColumn, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+
+    new Sortable(enRetardTasks, {
+      group: 'tasks',
+      animation: 150,
+      filter: ".static"
+    });
+  </script>
+
+</body>
+</html>

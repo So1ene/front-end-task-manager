@@ -1,0 +1,56 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+h1 {
+  font-size: 24px;
+  font-family: sans-serif;
+  color: #424B5B;
+  cursor: default;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page-top {
+  margin-top: 55px;
+  flex: 0 1 auto;
+}
+
+.page-title {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 0px 1px rgba(0, 0, 0, 0.1);
+  padding: 2px 40px;
+  background-color: #fff;
+  position:relative;
+  z-index:3;
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+  .calendar {
+    margin-top: 55px
+    height: 80vh;
+  }
+
+  .page-buttons{
+    display: block !important;
+  }
+
+  .left-column,
+  .date-day,
+  .card-location span,
+  .project-name,
+  .card-hours {
+    display: none;
+  }
+
+  .date{
+    min-width: 30px !important;
+  }
+}
