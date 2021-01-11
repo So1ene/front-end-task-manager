@@ -194,7 +194,9 @@
 #fifthColumnButton,
 #sixthColumnButton,
 #seventhColumnButton {
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
 }
 
 #firstColumn:hover #firstColumnButton,
@@ -205,5 +207,6 @@
 #fifthColumn:hover #fifthColumnButton,
 #sixthColumn:hover #sixthColumnButton,
 #seventhColumn:hover #seventhColumnButton {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
